@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Now</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Exercise Now</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="body_part">Body Part:</label>
+                <select class="form-control" id="body_part" name="body_part">
+                    <option value="Back">Back</option>
+                    <option value="Back, Knee">Back, Knee</option>
+                    <option value="Hip, Knee">Hip, Knee</option>
+                    <option value="Knee">Knee</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select class="form-control" id="type" name="type">
+                    <option value="Strength">Strength</option>
+                    <option value="Stretch">Stretch</option>
+                    <option value="Both">Both</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="time_available">Time Available (in minutes):</label>
+                <input type="number" class="form-control" id="time_available" name="time_available" required>
+            </div>
+            <div class="form-group">
+                <label for="equipment">Equipment:</label><br>
+                <input type="checkbox" name="equipment" value="Mat"> Mat<br>
+                <input type="checkbox" name="equipment" value="Band"> Band<br>
+                <!-- Add more equipment options as needed -->
+            </div>
+            <div class="form-group">
+                <label for="difficulty">Difficulty:</label><br>
+                <input type="checkbox" name="difficulty" value="1"> 1<br>
+                <input type="checkbox" name="difficulty" value="2"> 2<br>
+                <input type="checkbox" name="difficulty" value="3"> 3<br>
+                <input type="checkbox" name="difficulty" value="4"> 4<br>
+                <input type="checkbox" name="difficulty" value="5"> 5<br>
+                <!-- Add more difficulty options as needed -->
+            </div>
+            <div class="form-group">
+                <label for="space">Space:</label><br>
+                <input type="radio" name="space" value="Public Only"> Public Only<br>
+                <input type="radio" name="space" value="Private"> Private<br>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Routine</button>
+        </form>
+    </div>
+</body>
+</html>

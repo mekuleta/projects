@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine Proposal</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Routine Proposal</h1>
+        <ul class="list-group">
+            {% for exercise in exercises %}
+            <li class="list-group-item">
+                <h5>{{ exercise.name }}</h5>
+                <p>{{ exercise.directions }}</p>
+                <form method="POST" action="{{ url_for('routine_proposal') }}">
+                    <input type="hidden" name="exercise_id" value="{{ exercise.id }}">
+                    <button type="submit" class="btn btn-success">Completed</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="mt-4">
+            <p>Don’t forget to <a href="{{ url_for('login') }}">log in</a> or <a href="{{ url_for('register') }}">register</a> to add today’s session to your account for an overview and varied suggestions.</p>
+        </div>
+    </div>
+</body>
+</html>
