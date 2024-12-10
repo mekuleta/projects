@@ -47,7 +47,7 @@ class ExerciseDone(db.Model):
 
 # Home route to display the home page
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 # Login route to handle user login
@@ -77,7 +77,7 @@ def register():
             flash('Passwords do not match!', 'danger')
             return redirect(url_for('register'))
 
-        hashed_password = generate_password_hash(password, method='sha256')
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
         new_user = User(email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
@@ -179,10 +179,9 @@ def populate_db():
             db.session.add(new_exercise)
         db.session.commit()
 
-# Populate the database when the application starts, if necessary
-populate_db()
-
 # Main block to create the database tables and run the Flask application
 if __name__ == "__main__":
-    db.create_all()
+    with app.app_context():
+        db.create_all()
+        populate_db()
     app.run(debug=True)
