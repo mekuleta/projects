@@ -63,25 +63,23 @@
         <h1 class="text-center">Exercise Now</h1>
         
         <!-- Form for Generating Exercise Routine -->
-        <form method="POST">
+        <form action="{{ url_for('exercise') }}" method="POST">
             <div class="form-group">
                 <label for="body_part">Body Part:</label>
                 <select class="form-control" id="body_part" name="body_part">
                     <option value="" selected disabled>Select Body Part</option> <!-- Placeholder option -->
-                    <option value="Back">Back</option>
-                    <option value="Back, Knee">Back, Knee</option>
-                    <option value="Hip, Knee">Hip, Knee</option>
-                    <option value="Knee">Knee</option>
-                    <!-- Add more options as needed -->
+                    {% for part in body_parts %}
+                        <option value="{{ part.body_part }}">{{ part.body_part }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
                 <label for="type">Type:</label>
                 <select class="form-control" id="type" name="type">
-                    <option value="" selected disabled>Select Type</option> <!-- Placeholder option-->
-                    <option value="Strength">Strength</option>
-                    <option value="Stretch">Stretch</option>
-                    <option value="Both">Both</option>
+                    <option value="" selected disabled>Select Type</option> <!-- Placeholder option -->
+                    {% for type in types %}
+                        <option value="{{ type.type }}">{{ type.type }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
@@ -89,19 +87,18 @@
                 <input type="number" class="form-control" id="time_available" name="time_available" min="1" step="1" required>
             </div>
             <div class="form-group">
-                <label for="equipment">Equipment:</label><br>
-                <input type="checkbox" name="equipment" value="Mat"> Mat<br>
-                <input type="checkbox" name="equipment" value="Band"> Band<br>
-                <!-- Add more equipment options as needed -->
+                <label for="equipment">Equipment:</label>
+                <select class="form-control" id="equipment" name="equipment" multiple>
+                    {% for equip in equipment %}
+                        <option value="{{ equip.equipment }}">{{ equip.equipment }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="form-group">
                 <label for="difficulty">Difficulty:</label><br>
-                <input type="checkbox" name="difficulty" value="1"> 1<br>
-                <input type="checkbox" name="difficulty" value="2"> 2<br>
-                <input type="checkbox" name="difficulty" value="3"> 3<br>
-                <input type="checkbox" name="difficulty" value="4"> 4<br>
-                <input type="checkbox" name="difficulty" value="5"> 5<br>
-                <!-- Add more difficulty options as needed -->
+                {% for level in difficulties %}
+                    <input type="checkbox" name="difficulty" value="{{ level.level }}"> {{ level.level }}<br>
+                {% endfor %}
             </div>
             <div class="form-group">
                 <label for="space">Space:</label><br>

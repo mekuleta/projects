@@ -60,16 +60,18 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Exercise</th>
-                    <th scope="col">Timestamp</th>
+                    <th>Exercise</th>
+                    <th>Timestamp</th>
+                    <th>Duration (minutes)</th>
                 </tr>
             </thead>
             <tbody>
                 {% for record in exercises_done %}
-                <tr>
-                    <td>{{ record.exercise.name }}</td>
-                    <td>{{ record.timestamp }}</td>
-                </tr>
+                    <tr>
+                        <td>{{ record.exercise.name }}</td>
+                        <td>{{ record.timestamp }}</td>
+                        <td>{{ record.duration // 60 }}</td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>

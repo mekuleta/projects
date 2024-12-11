@@ -62,16 +62,15 @@
             <li class="list-group-item">
                 <h5>{{ exercise.name }}</h5>
                 <p>{{ exercise.directions }}</p>
-                <form method="POST" action="{{ url_for('routine_proposal') }}">
+                <form method="POST" action="{{ url_for('mark_completed', exercise_id=exercise.id) }}">
                     <input type="hidden" name="exercise_id" value="{{ exercise.id }}">
                     <button type="submit" class="btn btn-success">Completed</button>
                 </form>
             </li>
             {% endfor %}
         </ul>
-        <div class="mt-4">
-            <p>Don’t forget to <a href="{{ url_for('login') }}">log in</a> or <a href="{{ url_for('register') }}">register</a> to add today’s session to your account for an overview and varied suggestions.</p>
-        </div>
+        <p class="mt-3">Total Duration: {{ total_duration // 60 }} minutes</p>
+        <p>Don't forget to <a href="{{ url_for('login') }}">LOG IN</a> or <a href="{{ url_for('register') }}">REGISTER</a> to add today's session to your account for an overview and varied suggestions.</p>
     </div>
 </body>
 </html>
