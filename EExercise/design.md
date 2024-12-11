@@ -74,6 +74,7 @@ Beyond the scope of this submission, there are several suggested next steps to i
 2. **Enhancing Logging and Logged-In Functionalities**: Improve the handling of user sessions, ensuring that users remain logged in and their actions are correctly tracked.
 3. **Handling Edge Cases for Inputs**: Implement robust validation and error handling for all user inputs to ensure a smooth user experience.
 4. **Completing and Rotating Through Exercises**: Implement logic to track completed exercises in Track Record and rotate through available exercises to minimize repetition and promote varied routines.
+5. **Deploying to Render (or similar service)**: Making the web app available broadly
 
 ## Thank you
 
