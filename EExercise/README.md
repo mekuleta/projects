@@ -2,6 +2,9 @@
 
 Welcome to the Exercise Everywhere web app! This application allows users to customize their physical therapy routines based on their specific needs and constraints. Users can register, log in, and generate exercise routines tailored to their available time, equipment, and desired body part. The app also tracks users' exercise history to minimize repetition and promote varied routines.
 
+## Apart from the helpful text below, please make sure to visit the video overview of this project, linked here:
+https://youtu.be/vShsaSIrjzY
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
